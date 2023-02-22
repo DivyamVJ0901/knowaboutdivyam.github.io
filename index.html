@@ -1,0 +1,1055 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio website - Divyam Vijay</title>
+    <!-- <link rel="stylesheet" href="style2.css" /> -->
+    <link rel="icon" type="image/x-icon" href="/My pics/Favicon.png" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Be Vietnam Pro", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      :root {
+        --bgOrange: #e84949;
+      }
+
+      #wrapper {
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      .container {
+        width: 1200px;
+        margin: 0 auto;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1rem;
+      }
+
+      .logo-container {
+        display: flex;
+        justify-content: baseline;
+        align-items: center;
+      }
+
+      .nav-items {
+        padding: 2%;
+        display: flex;
+        justify-content: space-between;
+        gap: 2em;
+        font-size: 22px;
+        transition: all 0.5s;
+      }
+
+      a {
+        color: #343d68;
+        font-size: 22px;
+        text-decoration: none; /*Hyperlink ke neeche se underline htane ke liye*/
+      }
+
+      .nav-items div:hover {
+        transition: 0.5s;
+        font-weight: bold;
+      }
+
+      .hero-section {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5rem;
+        margin: 4rem auto;
+        padding: 0 1rem;
+        padding-bottom: 8rem;
+      }
+
+      .faded-text {
+        position: absolute;
+        user-select: none;
+        font-size: 7em;
+        color: rgb(231, 231, 231);
+        bottom: -16%;
+        left: -5%;
+        font-weight: bold;
+        transition: all 3s;
+      }
+
+      .hero-section-left {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+      }
+
+      .hero-section-heading {
+        font-size: 35px;
+        color: #343d68;
+        font-weight: 400;
+      }
+
+      .role {
+        color: blueviolet;
+        font-weight: 1000;
+      }
+
+      .hero-section-sub-heading {
+        font-size: 45px;
+        line-height: 45px;
+      }
+
+      .hero-section-desc {
+        margin-top: 1rem;
+        width: 70%;
+        font-weight: 500;
+      }
+
+      .btn-pink {
+        background-color: var(--bgOrange);
+        width: fit-content;
+        color: white;
+        padding: 0.8rem 2.3rem;
+        box-shadow: 5px 5px 7px 0px #0000003f;
+        cursor: pointer;
+        transition: all 0.5s;
+        font-weight: 500;
+        border: solid 2px transparent;
+        position: relative;
+        z-index: 100;
+      }
+
+      .btn-pink a {
+        color: white;
+      }
+
+      .btn-pink a:hover {
+        color: var(--bgOrange);
+      }
+
+      .btn-pink::before {
+        content: "";
+        position: absolute;
+        background-color: white;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: all 0.8s;
+      }
+
+      .btn-pink:hover::before {
+        transform: scaleX(1);
+      }
+
+      .btn-pink:hover {
+        border: solid 2px --bgOrange;
+        color: var(--bgOrange);
+        transform: scale(1.1);
+      }
+
+      .hero-section-right {
+        position: relative;
+      }
+
+      .absolute {
+        position: absolute;
+        z-index: 10;
+      }
+
+      .my-image {
+        padding: 2.5rem;
+        filter: grayscale(1);
+        transition: all 1s;
+        animation: scaleImage 5s linear infinite;
+      }
+
+      .my-image img {
+        z-index: -9;
+      }
+
+      @keyframes scaleImage {
+        0% {
+          filter: grayscale(0);
+          transform: scale(1);
+        }
+
+        50% {
+          filter: grayscale(1);
+          transform: scale(1.1);
+          box-shadow: 3px 3px 10px black;
+        }
+
+        100% {
+          filter: grayscale(0);
+          transform: scale(1);
+        }
+      }
+
+      .icon-dots {
+        bottom: -1rem;
+        right: 0;
+        animation: dotsAnimation 5s infinite;
+      }
+
+      .icon-cube {
+        top: -0.8em;
+        right: 1em;
+        animation: cubeRotate 3s infinite;
+      }
+
+      .icon-circle {
+        left: 0;
+        bottom: 0;
+        animation: shakeEffect 5s linear infinite;
+      }
+
+      .icon-zigzag {
+        top: 1.5em;
+        left: -0.3em;
+        animation: zigzagAnimation 5s ease-in infinite;
+      }
+
+      .icon-plus {
+        top: -0.8rem;
+        left: 50%;
+        animation: shakePlus 5s ease-in infinite;
+      }
+
+      @keyframes dotsAnimation {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      @keyframes cubeRotate {
+        0% {
+          transform: rotateY(0deg) translateY(0px);
+        }
+        50% {
+          transform: rotateY(180deg) translateY(-12px);
+        }
+        100% {
+          transform: rotateY(360deg) translateY(0px);
+        }
+      }
+
+      @keyframes shakeEffect {
+        0% {
+          transform: rotateX(45deg);
+        }
+        50% {
+          left: 5%;
+          bottom: 10%;
+          transform: rotateY(180deg);
+        }
+        100% {
+          transform: rotateY(360deg);
+          transform: rotateX(360deg);
+        }
+      }
+
+      @keyframes zigzagAnimation {
+        0% {
+          left: 0%;
+          top: 0%;
+        }
+        50% {
+          left: 5%;
+          top: 5%;
+        }
+        100% {
+          left: 0%;
+          top: 0%;
+        }
+      }
+
+      @keyframes shakePlus {
+        0% {
+          left: 50%;
+          top: 0%;
+        }
+        50% {
+          left: 48%;
+          top: 5%;
+        }
+        100% {
+          left: 50%;
+          top: 0%;
+        }
+      }
+
+      .project-section {
+        background-color: rgb(231, 231, 231);
+        margin-top: 3rem;
+      }
+
+      .page-header {
+        color: var(--bgOrange);
+        font-size: 90px;
+        text-align: center;
+        padding-top: 25px;
+      }
+
+      .project-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 150px;
+      }
+
+      .project-card {
+        width: 90%;
+        height: 550px;
+        background-image: url(Project_1_bg.png);
+        background-size: cover;
+        position: relative;
+        box-shadow: 0px 0px 40px #1f1f1f;
+      }
+
+      .project-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #1f1f1f9a;
+        z-index: 0;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, #343d68, #343d68be, #343d687c);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: all 0.5s;
+        z-index: 1;
+      }
+
+      .project-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .project-number {
+        position: absolute;
+        font-size: 200px;
+        font-weight: 600;
+        color: white;
+        z-index: 10;
+        opacity: 0; /*Project number visible nahi hoga isse*/
+      }
+
+      .project-card:hover .project-number {
+        opacity: 1; /*Project number visible karne ke liye*/
+      }
+
+      .project-number-right {
+        right: -40px;
+        top: -45px;
+      }
+
+      .project-numebr-left {
+        left: -40px;
+        top: -45px;
+      }
+
+      .project-content {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        padding: 2em;
+        bottom: 20%;
+        z-index: 6;
+        gap: 1em;
+        transition: all 0.5s;
+        color: white;
+      }
+
+      .project-content-left {
+        left: 10%;
+      }
+
+      .project-content-right {
+        right: 10%;
+      }
+
+      .project-skill-container {
+        width: 60%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .project-skill {
+        width: 40px;
+      }
+
+      .project-heading {
+        font-size: 50px;
+        font-weight: bold;
+        line-height: 3rem;
+      }
+
+      .project-subeheading {
+        width: 70%;
+        font-size: 16px;
+        font-style: italic;
+      }
+
+      .btn-grp {
+        display: flex;
+        flex-direction: row;
+        gap: 0.9rem;
+        align-items: center;
+      }
+
+      .btn-project:hover {
+        border: none;
+      }
+
+      .icon {
+        cursor: pointer;
+        color: white;
+        font-size: 35px;
+        transition: all 0.5s;
+      }
+
+      .icon:hover {
+        color: var(--bgOrange);
+      }
+
+      .project-card:hover .project-content {
+        transform: scale(1.1);
+      }
+
+      #project1 {
+        background-image: url(Project_1_bg.png);
+      }
+      #project2 {
+        margin-left: 120px;
+        background-image: url(Project_6_bg.png);
+      }
+      #project3 {
+        background-image: url(Project_5_bg.png);
+      }
+      #project4 {
+        margin-left: 120px;
+        background-image: url(Project_4_bg.png);
+      }
+
+      @media (max-width: 1300px) {
+        .page-header {
+          padding-top: 30px;
+          color: var(--bgOrange);
+          text-align: center;
+          font-size: 40px;
+        }
+        .project-container {
+          padding: 5px;
+          margin: 10px;
+          gap: 60px;
+        }
+        .project-card {
+          width: 100%;
+          height: 300px;
+        }
+        .project-card {
+          background-size: cover;
+          background-position: center;
+        }
+        .project-content {
+          scale: 0.5;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          top: 0;
+        }
+        .project-content-left {
+          left: 0;
+        }
+        .project-heading {
+          font-size: 40px;
+          width: 100%;
+        }
+        .project-sub-heading {
+          width: 100%;
+        }
+        #project2 {
+          margin-left: 0;
+        }
+        #project4 {
+          margin-left: 0;
+        }
+        .project-skill-container {
+          width: 100%;
+        }
+        .project-skill {
+          width: 35px;
+        }
+        .project-card:hover .project-number {
+          display: none;
+        }
+        .project-card:hover .project-content {
+          scale: 0.55;
+        }
+      }
+
+      .skills-container {
+        position: relative;
+        display: flex;
+        padding: 5rem;
+        margin: 10rem auto;
+        gap: 40px;
+      }
+
+      .skills-container-left {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .skills-container-right {
+        display: flex;
+        flex-wrap: wrap;
+        width: 50%;
+        position: relative;
+        gap: 2rem;
+        justify-content: center;
+      }
+
+      .skill-fade-text {
+        position: absolute;
+        font-size: 15em;
+        font-style: bold;
+        color: rgb(231, 231, 231);
+        bottom: -34.5%;
+        right: -20%;
+        user-select: none;
+        overflow-y: hidden;
+      }
+
+      .blob-style {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: -5;
+        transform: translate(-50%, -50%);
+        animation: blobAnime 3s linear infinite;
+      }
+
+      @keyframes blobAnime {
+        50% {
+          top: 54%;
+          left: 16%;
+        }
+      }
+
+      .skills-logo {
+        width: 72px;
+        transition: all 0.1s;
+      }
+
+      .skills-logo:hover {
+        transform: scale(1.3);
+      }
+
+      .skill-heading {
+        font-size: 45px;
+        font-weight: bold;
+        color: var(--bgOrange);
+        line-height: 50px;
+      }
+
+      .caps {
+        font-size: 87px;
+      }
+
+      .skills-subheading {
+        margin-top: 1rem;
+        width: 85%;
+        text-align: justify;
+      }
+
+      .skills-subheading p {
+        margin: 15px 0;
+      }
+
+      .contact-me {
+        width: 100%;
+        background-color: rgb(231, 231, 231);
+        margin-top: -1rem;
+      }
+
+      .contact-heading {
+        text-align: left;
+        color: var(--bgOrange);
+        font-size: 81px;
+      }
+
+      .contact-subheading {
+        color: #343d68;
+        font-size: 45px;
+        opacity: 0.7;
+      }
+
+      .contact-form {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.1px;
+        width: 75%;
+        margin: 25px;
+      }
+
+      .form-field {
+        width: 100%;
+        height: 42px;
+        padding: 0 2rem;
+        font-size: 18px;
+        border-radius: 15px;
+        box-shadow: 2px 2px 15px rgb(49, 48, 48);
+        font-weight: 500;
+        border: none;
+        margin-top: 12px;
+      }
+
+      .form-field-textarea {
+        height: auto;
+        padding-top: 1rem;
+        margin-top: 30px;
+      }
+
+      #submit-btn {
+        border: none;
+        font-size: 1.4rem;
+        margin: 1rem 0;
+      }
+
+      #submit-btn:hover {
+        scale: 0.8;
+      }
+
+      .footer {
+        position: relative;
+        margin-top: -1px;
+        padding: 5rem;
+        width: 100%;
+        background-color: #343d68;
+      }
+
+      .footer-wrapper {
+        display: flex;
+        gap: 1rem;
+        padding: 1.2rem;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-faded-text {
+        position: absolute;
+        left: 35%;
+        bottom: 0;
+        color: #535c87;
+        font-size: 85px;
+        user-select: none;
+      }
+
+      .link-wrapper {
+        display: flex;
+        gap: 2em;
+      }
+
+      .link-wrapper a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.5s;
+      }
+
+      .link-wrapper a:hover {
+        color: var(--bgOrange);
+      }
+
+      .icon-wrapper {
+        display: flex;
+        gap: 1.3rem;
+      }
+      p{
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <!-- NAVIGATION BAR -->
+      <div class="container">
+        <div class="navbar">
+          <div class="logo-container">
+            <img src="https://as2.ftcdn.net/v2/jpg/03/91/49/21/1000_F_391492173_iUwjrJbLELdR7g5DR9vUs9WFbvSqaz48.jpg" width="200px" height="130px" />
+          </div>
+
+          <div class="nav-items">
+            <div><a href="#projects">Projects</a></div>
+            <div><a href="#skills">Skills</a></div>
+            <div><a href="#contactme">Contact Me</a></div>
+          </div>
+        </div>
+
+        <!-- HERO-->
+
+        <div class="hero-section">
+          <div class="faded-text">Engineer</div>
+
+          <div class="hero-section-left">
+            <div class="hero-section-heading">Hi !! Divyam Vijay</div>
+
+            <div class="hero-section-heading hero-section-subheading">
+              I am a <span class="role"></span>
+            </div>
+
+            <div class="hero-section-desc">
+              I am a C/C++ Programmer , MERN Stack Web Developer and here is my
+              Portfolio website. Here , you will see my journey as a Software
+              Developer.
+            </div>
+
+            <div class="btn-pink" id="btn" ><a href="#contactme">Hire Me</a></div>
+          </div>
+
+          <div class="hero-section-right">
+            <div class="absolute icons icon-dots">
+              <img src="/userAsset/dots.png" alt="" />
+            </div>
+            <div class="absolute icons icon-cube">
+              <img src="/userAsset/cube.png" alt="" />
+            </div>
+            <div class="absolute icons icon-circle">
+              <img src="/userAsset/circle.png" alt="" />
+            </div>
+            <div class="absolute icons icon-zigzag">
+              <img src="/userAsset/zigzags.png" alt="" />
+            </div>
+            <div class="absolute icons icon-plus">
+              <img src="/userAsset/plus.png" alt="" />
+            </div>
+            <div class="my-image">
+              <img
+                src="/My pics/My-image.png"
+                alt=""
+                height="410px"
+                width="345px"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT SECTION -->
+      <div class="project-section" id="projects">
+        <h2 class="page-header">Projects</h2>
+        <div class="project-container">
+          <div class="project-card" id="project1">
+            <div class="project-number project-number-right">01</div>
+            <div class="project-content project-content-left">
+              <div class="project-skills-container">
+                <img class="project-skill" src="/stack/HTML.png" alt="" />
+                <img class="project-skill" src="/stack/CSS.png" alt="" />
+                
+              </div>
+              <h2 class="project-heading">My Gallery</h2>
+
+              <p class="project-subheading">
+                In this project , when we hover on an image it comes into its natural colour and its size becomes 1.25 times as compared to prior along with a shadow
+              </p>
+              <div class="btn-grp">
+                <button class="btn-pink btn-project">Read More</button>
+                <a href="">
+                  <i title="GitHubLink" class="fa-brands fa-github icon"></i>
+                </a>
+                <!-- <a href="">
+                  <i title="LiveLink" class="fa-brands fa-link icon"></i>
+                </a> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card" id="project2">
+            <div class="project-number project-number-left">02</div>
+            <div class="project-content project-content-right">
+              <div class="project-skills-container">
+                <img class="project-skill" src="/stack/HTML.png" alt="" />
+                <img class="project-skill" src="/stack/CSS.png" alt="" />
+                <img class="project-skill" src="/stack/Javascript.svg" alt="" />
+                <img class="project-skill" src="/stack/Tailwind.png" alt="" />
+              </div>
+              <h2 class="project-heading">Discord Server clone</h2>
+
+              <p class="project-subheading">
+                It is clone of Frontend of Discord server website.
+              </p>
+              <div class="btn-grp">
+                <button class="btn-pink btn-project">Read More</button>
+                <a href="https://github.com/DivyamVJ0901/Discord-clone" target="_blank">
+                  <i title="GitHubLink" class="fa-brands fa-github icon"></i>
+                </a>
+                <!-- <a href="">
+                  <i title="LiveLink" class="fa-brands fa-link icon"></i>
+                </a> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card" id="project3">
+            <div class="project-number project-number-right">03</div>
+            <div class="project-content project-content-left">
+              <div class="project-skills-container">
+                <img class="project-skill" src="/stack/HTML.png" alt="" />
+                <img class="project-skill" src="/stack/CSS.png" alt="" />
+                <img class="project-skill" src="/stack/Javascript.svg" alt="" />
+                <img class="project-skill" src="/stack/Tailwind.png" alt="" />
+              </div>
+              <h2 class="project-heading">Razorpay clone</h2>
+              <p class="project-subheading">
+                It is clone of Frontend of Razorpay website
+              </p>
+              <div class="btn-grp">
+                <button class="btn-pink btn-project">Read More</button>
+                <a href="https://github.com/DivyamVJ0901/Razorpay-clone" target="_blank">
+                  <i title="GitHubLink" class="fa-brands fa-github icon"></i>
+                </a>
+                <!-- <a href="">
+                  <i title="LiveLink" class="fa-brands fa-link icon"></i>
+                </a> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card" id="project4">
+            <div class="project-number project-number-left">04</div>
+            <div class="project-content project-content-right">
+              <div class="project-skills-container">
+                
+                <img class="project-skill" src="/stack/HTML.png" alt="" />
+                <img class="project-skill" src="/stack/CSS.png" alt="" />
+              </div>
+              <h2 class="project-heading">Parallax website</h2>
+
+              <p class="project-subheading">
+                This website shows us a parallax effect. 
+              </p>
+              <div class="btn-grp">
+                <button class="btn-pink btn-project">Read More</button>
+                <a href="">
+                  <i title="GitHubLink" class="fa-brands fa-github icon"></i>
+                </a>
+                <!-- <a href="">
+                  <i title="LiveLink" class="fa-brands fa-link icon"></i>
+                </a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TECH STACKS -->
+      <div id="skills" class="container skills-container">
+        <div class="skill-fade-text">Skills</div>
+        <div class="skills-container-left">
+          <h2 class="skill-heading">
+            <span class="caps">M</span>e and
+            <br />
+            My Tech Stack
+          </h2>
+          <div class="skills-subheading">
+            <p>
+              Hi Everyone , these are my tech stacks , I know HTML CSS and Javascript at an advanced level.
+            </p>
+            <p>
+              Also , I am familiar with Bash , Bootstrap , ChartJS , Docker , Express , Git , Github , Graphql , MongoDB , Next ,
+              NodeJS , React , Redux , Tailwind , TypeScript and Vercel.
+            </p>
+          </div>
+        </div>
+
+        <div class="skills-container-right">
+          <img src="/userAsset/blob vector.png" class="blob-style" />
+
+          <img src="/stack/HTML.png" class="skills-logo" alt="" />
+          <img src="/stack/CSS.png" class="skills-logo" alt="" />
+          <img src="/stack/Javascript.svg" class="skills-logo" alt="" />
+          <img src="/stack/React.png" class="skills-logo" alt="" />
+          <img src="/stack/NodeJs.svg" class="skills-logo" alt="" />
+          <img src="/stack/Next.svg" class="skills-logo" alt="" />
+          <img src="/stack/Redux.svg" class="skills-logo" alt="" />
+          <img src="/stack/Tailwind.png" class="skills-logo" alt="" />
+          <img src="/stack/Bootstrap.svg" class="skills-logo" alt="" />
+          <img src="/stack/MaterialUI.svg" class="skills-logo" alt="" />
+          <img src="/stack/Express.png" class="skills-logo" alt="" />
+          <img src="/stack/Git.svg" class="skills-logo" alt="" />
+          <img src="/stack/Github.svg" class="skills-logo" alt="" />
+          <img src="/stack/Graphql.svg" class="skills-logo" alt="" />
+          <img src="/stack/MongoDB.svg" class="skills-logo" alt="" />
+          <img src="/stack/Vercel.svg" class="skills-logo" alt="" />
+          <img src="/stack/ChartJs.svg" class="skills-logo" alt="" />
+          <img src="/stack/Bash.svg" class="skills-logo" alt="" />
+          <img src="/stack/Docker.svg" class="skills-logo" alt="" />
+          <img src="/stack/K8s.svg" class="skills-logo" alt="" />
+        </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+      <script
+        src="https://kit.fontawesome.com/58a810656e.js"
+        crossorigin="anonymous"
+      ></script>
+      <script>
+        var typeData = new Typed(".role", {
+          strings: [
+            "MERN Stack Developer",
+            "Freelancer",
+            "Video Editor",
+            "Frontend Developer",
+            "Programmer",
+          ],
+          loop: true,
+          typeSpeed: 100,
+          backSpeed: 80,
+          backDelay: 1000,
+        });
+      </script>
+
+      <!--CONTACT US-->
+
+      <div class="contact-me" id="contactme">
+        <div class="container">
+          <h2 class="contact-heading">Contact Me</h2>
+          <p class="contact-subheading">
+            Questions, Thoughts, Or Just Want To Say Hello?
+          </p>
+          <div class="contact-form">
+            <form action="" class="form">
+              <label for="Name"></label>
+              <input
+                type="text"
+                class="form-field"
+                name="Name"
+                placeholder="Enter your name"
+                required
+              />
+              <br />
+              <label for="Email"></label>
+              <input
+                type="text"
+                class="form-field"
+                name="Email"
+                placeholder="Enter your email address"
+                required
+              />
+              <br />
+              <label for="Number"></label>
+              <input
+                type="number"
+                class="form-field"
+                name="Number"
+                placeholder="Enter your contact number "
+                required
+              />
+              <br />
+              <label for="subject"></label>
+              <input
+                type="text"
+                class="form-field"
+                name="subject"
+                placeholder="Enter your subject "
+                required
+              />
+              <label for="message"></label>
+              <textarea
+                name="message"
+                cols="30"
+                rows="10"
+                class="form-field form-field-textarea"
+                placeholder="Enter your message"
+              ></textarea>
+              <div>
+                <button type="submit" class="btn-pink" id="submit-btn">
+                  Send Message
+                  <i class="submit-icon fa-solid fa-paper-plane"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER-->
+      <section class="footer">
+        <div class="container">
+          <div class="footer-wrapper">
+            <div class="footer-faded-text">Divyam Vijay</div>
+            <div class="link-wrapper">
+              <div><a href="#projects">Projects</a></div>
+              <div><a href="#skills">Skills</a></div>
+              <div><a href="#contactme">Contact Me</a></div>
+            </div>
+
+            <div class="icon-wrapper">
+              <a
+                href="https://www.linkedin.com/in/divyam-vijay-597768233/"
+                target="blank"
+                ><i class="fa-brands fa-linkedin icon"></i
+              ></a>
+
+              <a href="https://github.com/DivyamVJ0901" target="blank"
+                ><i class="fa-brands fa-github icon"></i
+              ></a>
+
+              <a href="https://twitter.com/DivyamVijay10" target="blank"
+                ><i class="fa-brands fa-twitter icon"></i
+              ></a>
+
+              <a href="https://www.instagram.com/divyamvijay543/" target="blank"
+                ><i class="fa-brands fa-instagram icon"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
